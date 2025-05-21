@@ -14,7 +14,7 @@ while True:
 
     opc: str = input(menu)
     
-    if opc.lower() == "D":
+    if opc.lower() == "d":
         valor: float = float(input("Informe o valor do depósito: "))
 
         if valor > 0:
@@ -24,7 +24,7 @@ while True:
         else:
             print("Operação falhou! O valor informado é inválido.")
 
-    elif opc.lower() == "S":
+    elif opc.lower() == "s":
         valor: float = float(input("Informe o valor do saque: "))
 
         excedeu_saldo = valor > saldo 
@@ -49,13 +49,13 @@ while True:
         else:
             print("Operação falhou! O valor informado é inválido.")
 
-    elif opc.lower() == "E":
+    elif opc.lower() == "e":
         print("\n================ EXTRATO ================")
         print("Não foram realizadas movimentações." if not extrato else extrato)
         print(f"\nSaldo: R$ {saldo:.2f}")
         print("==========================================")
 
-    elif opc.lower() == "X":
+    elif opc.lower() == "x":
         break
 
     else:
