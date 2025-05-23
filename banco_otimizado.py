@@ -7,18 +7,18 @@ def menu():
     os.system('cls')
 
     menu = """================ MENU ================
-[1]Depositar
-[2]Sacar
-[3]Extrato
-[4]Nova conta
-[5]Listar contas
-[6]Novo usuário
-[7]Sair
+[1] Depositar
+[2] Sacar
+[3] Extrato
+[4] Nova conta
+[5] Listar contas
+[6] Novo usuário
+[7] Sair
 => """
     return int(input(menu))
 
 
-def depositar(saldo, valor, extrato):
+def depositar(saldo, valor, extrato, /):
     if valor > 0:
         saldo += valor
         extrato += f"Depósito:\tR$ {valor:.2f}\n"
@@ -29,7 +29,7 @@ def depositar(saldo, valor, extrato):
     return saldo, extrato
 
 
-def sacar(saldo, valor, extrato, limite, numero_saques, limite_saques):
+def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
     excedeu_saldo = valor > saldo
     excedeu_limite = valor > limite
     excedeu_saques = numero_saques >= limite_saques
