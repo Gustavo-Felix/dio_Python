@@ -1,20 +1,25 @@
-menu = """[D] Depositar
-[S] Sacar
-[E] Extrato
-[X] Sair
+import os
+import time
+
+menu = """[1] Depositar
+[2] Sacar
+[3] Extrato
+[4] Sair
 => """
 
-saldo: int = 0
+saldo: float = 0
 limite: int = 500
 extrato: str = ""
 numero_saques: int = 0
 LIMITE_SAQUES: int = 3
 
 while True:
+    time.sleep(2)
+    os.system('cls')
 
-    opc: str = input(menu)
+    opc: int = int(input(menu))
     
-    if opc.lower() == "d":
+    if opc == 1:
         valor: float = float(input("Informe o valor do depósito: "))
 
         if valor > 0:
@@ -24,7 +29,7 @@ while True:
         else:
             print("Operação falhou! O valor informado é inválido.")
 
-    elif opc.lower() == "s":
+    elif opc == 2:
         valor: float = float(input("Informe o valor do saque: "))
 
         excedeu_saldo = valor > saldo 
@@ -49,13 +54,13 @@ while True:
         else:
             print("Operação falhou! O valor informado é inválido.")
 
-    elif opc.lower() == "e":
+    elif opc == 3:
         print("\n================ EXTRATO ================")
         print("Não foram realizadas movimentações." if not extrato else extrato)
         print(f"\nSaldo: R$ {saldo:.2f}")
         print("==========================================")
 
-    elif opc.lower() == "x":
+    elif opc == 4:
         break
 
     else:
